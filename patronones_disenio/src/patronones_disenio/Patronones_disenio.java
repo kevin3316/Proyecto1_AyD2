@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package patronones_disenio;
+import PatronBuilder.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,8 +18,20 @@ public class Patronones_disenio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        GUI ventana = new GUI();
-        ventana.show(true);
+        
+
+        //GUI ventana = new GUI();
+        //ventana.show(true);
+        
+        DeporteBuilder dep = new DeporteBuilder();
+        AnimalBuilder ab = new AnimalBuilder();
+        ObjetoBuilder ob = new ObjetoBuilder();
+        NodoCarta nc = new NodoCarta();
+        nc.setCartaBuilder(ab);
+        nc.ConstruirCarta("ruta especificada",1);
+        
+        Carta c = nc.getCarta();
+        JOptionPane.showMessageDialog(null," tipo:" + c.getTipo() + "  ruta: " + c.getRuta());
     }
     
 }
