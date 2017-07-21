@@ -20,10 +20,10 @@ public class Patronones_disenio {
         // TODO code application logic here
         
 
-        //GUI ventana = new GUI();
-        //ventana.show(true);
+        GUI ventana = new GUI();
+        ventana.show(true);
         
-        DeporteBuilder dep = new DeporteBuilder();
+        /*DeporteBuilder dep = new DeporteBuilder();
         AnimalBuilder ab = new AnimalBuilder();
         ObjetoBuilder ob = new ObjetoBuilder();
         NodoCarta nc = new NodoCarta();
@@ -32,6 +32,7 @@ public class Patronones_disenio {
         
         Carta c = nc.getCarta();
         JOptionPane.showMessageDialog(null," tipo:" + c.getTipo() + "  ruta: " + c.getRuta());
+        */
     }
     
 }

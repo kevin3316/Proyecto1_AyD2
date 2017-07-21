@@ -5,6 +5,8 @@
  */
 package patronones_disenio;
 
+import java.awt.Color;
+
 /**
  *
  * @author kevin
@@ -16,7 +18,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        this.jLabel1.setText("Hello word");
+        this.jp_Juego.setBackground(Color.GRAY);
+        this.jp_DatosUser.setBackground(Color.green);
     }
 
     /**
@@ -28,29 +31,192 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jp_DatosUser = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jl_NombreUser = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jl_Puntaje = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jl_Tiempo1 = new javax.swing.JLabel();
+        jp_Juego = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jmi_Nuevo_ = new javax.swing.JMenuItem();
+        jmi_Reiniciar_ = new javax.swing.JMenuItem();
+        jmi_Salir_ = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jmi_Puntaje_ = new javax.swing.JMenuItem();
+        jmi_Top_ = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmi_Acerca_ = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
+        jLabel1.setText("Usuario:");
+
+        jLabel2.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
+        jLabel2.setText("Tiempo:");
+
+        jLabel3.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
+        jLabel3.setText("Puntaje:");
+
+        javax.swing.GroupLayout jp_DatosUserLayout = new javax.swing.GroupLayout(jp_DatosUser);
+        jp_DatosUser.setLayout(jp_DatosUserLayout);
+        jp_DatosUserLayout.setHorizontalGroup(
+            jp_DatosUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DatosUserLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jp_DatosUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addGroup(jp_DatosUserLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jp_DatosUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_Tiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_Puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_NombreUser, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jp_DatosUserLayout.setVerticalGroup(
+            jp_DatosUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DatosUserLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_NombreUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_Tiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_Puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jp_JuegoLayout = new javax.swing.GroupLayout(jp_Juego);
+        jp_Juego.setLayout(jp_JuegoLayout);
+        jp_JuegoLayout.setHorizontalGroup(
+            jp_JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 628, Short.MAX_VALUE)
+        );
+        jp_JuegoLayout.setVerticalGroup(
+            jp_JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("Nuevo");
+
+        jmi_Nuevo_.setText("Nuevo Juego");
+        jmi_Nuevo_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Nuevo_ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_Nuevo_);
+
+        jmi_Reiniciar_.setText("Reiniciar Juego");
+        jmi_Reiniciar_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Reiniciar_ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_Reiniciar_);
+
+        jmi_Salir_.setText("Salir");
+        jmi_Salir_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Salir_ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_Salir_);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Estadisticas");
+
+        jmi_Puntaje_.setText("Puntaje");
+        jmi_Puntaje_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Puntaje_ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_Puntaje_);
+
+        jmi_Top_.setText("Top 5");
+        jmi_Top_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Top_ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_Top_);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Extra");
+
+        jmi_Acerca_.setText("Acerca De");
+        jmi_Acerca_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_Acerca_ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmi_Acerca_);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(jp_DatosUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_Juego, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+            .addComponent(jp_DatosUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_Juego, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //===================================== Botones del menu Nuevo =====================================
+    private void jmi_Nuevo_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Nuevo_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Nuevo_ActionPerformed
+
+    private void jmi_Reiniciar_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Reiniciar_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Reiniciar_ActionPerformed
+
+    private void jmi_Salir_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Salir_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Salir_ActionPerformed
+
+    
+    //================================== Botones del menu Estadisticas ==================================
+    private void jmi_Puntaje_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Puntaje_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Puntaje_ActionPerformed
+
+    private void jmi_Top_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Top_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Top_ActionPerformed
+
+    
+    
+    //=================================== Botones del menu Extras =====================================
+    private void jmi_Acerca_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Acerca_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_Acerca_ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,5 +255,22 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jl_NombreUser;
+    private javax.swing.JLabel jl_Puntaje;
+    private javax.swing.JLabel jl_Tiempo1;
+    private javax.swing.JMenuItem jmi_Acerca_;
+    private javax.swing.JMenuItem jmi_Nuevo_;
+    private javax.swing.JMenuItem jmi_Puntaje_;
+    private javax.swing.JMenuItem jmi_Reiniciar_;
+    private javax.swing.JMenuItem jmi_Salir_;
+    private javax.swing.JMenuItem jmi_Top_;
+    private javax.swing.JPanel jp_DatosUser;
+    private javax.swing.JPanel jp_Juego;
     // End of variables declaration//GEN-END:variables
 }
