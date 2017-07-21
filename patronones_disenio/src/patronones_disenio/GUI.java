@@ -16,7 +16,7 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        this.jLabel1.setText("Pascuala Agarrala");
+        this.jLabel1.setText("Kevin tiene panocha");
     }
 
     /**
