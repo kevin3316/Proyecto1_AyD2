@@ -6,6 +6,9 @@
 package patronones_disenio;
 
 import java.awt.Color;
+import java.awt.List;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +16,14 @@ import java.awt.Color;
  */
 public class GUI extends javax.swing.JFrame {
 
+    LinkedList<User> lista = new LinkedList<User>();
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        this.jl_NombreUser.setText("Robin");
+        this.jl_Puntaje.setText("10");
         this.jp_Juego.setBackground(Color.GRAY);
         this.jp_DatosUser.setBackground(Color.green);
     }
@@ -55,11 +61,17 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
         jLabel1.setText("Usuario:");
 
+        jl_NombreUser.setFont(new java.awt.Font("GROBOLD", 0, 12)); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
         jLabel2.setText("Tiempo:");
 
+        jl_Puntaje.setFont(new java.awt.Font("GROBOLD", 0, 12)); // NOI18N
+
         jLabel3.setFont(new java.awt.Font("GROBOLD", 0, 14)); // NOI18N
         jLabel3.setText("Puntaje:");
+
+        jl_Tiempo1.setFont(new java.awt.Font("GROBOLD", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jp_DatosUserLayout = new javax.swing.GroupLayout(jp_DatosUser);
         jp_DatosUser.setLayout(jp_DatosUserLayout);
@@ -199,16 +211,22 @@ public class GUI extends javax.swing.JFrame {
 
     private void jmi_Salir_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Salir_ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jmi_Salir_ActionPerformed
 
     
     //================================== Botones del menu Estadisticas ==================================
     private void jmi_Puntaje_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Puntaje_ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, lista.get(0).getUser());
     }//GEN-LAST:event_jmi_Puntaje_ActionPerformed
 
     private void jmi_Top_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_Top_ActionPerformed
         // TODO add your handling code here:
+        User us = new User();
+        us.setUser(jl_NombreUser.getText());
+        us.setPuntaje(Integer.parseInt(jl_Puntaje.getText()));
+        lista.add(us);
     }//GEN-LAST:event_jmi_Top_ActionPerformed
 
     
@@ -261,9 +279,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel jl_NombreUser;
-    private javax.swing.JLabel jl_Puntaje;
-    private javax.swing.JLabel jl_Tiempo1;
+    public static javax.swing.JLabel jl_NombreUser;
+    public static javax.swing.JLabel jl_Puntaje;
+    public static javax.swing.JLabel jl_Tiempo1;
     private javax.swing.JMenuItem jmi_Acerca_;
     private javax.swing.JMenuItem jmi_Nuevo_;
     private javax.swing.JMenuItem jmi_Puntaje_;

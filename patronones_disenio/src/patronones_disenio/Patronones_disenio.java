@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Patronones_disenio {
 
+    
     /**
      * @param args the command line arguments
      */
@@ -20,7 +21,7 @@ public class Patronones_disenio {
         // TODO code application logic here
         
 
-        GUI ventana = new GUI();
+        GuiInicio ventana = new GuiInicio();
         ventana.show(true);
         
         /*DeporteBuilder dep = new DeporteBuilder();
