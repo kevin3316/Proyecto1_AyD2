@@ -35,6 +35,7 @@ public class GuiInicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtxt_Nickname = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        cb_dificultad = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,20 +51,24 @@ public class GuiInicio extends javax.swing.JFrame {
             }
         });
 
+        cb_dificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Intermedio", "Dificil" }));
+
         javax.swing.GroupLayout JP_FondoLayout = new javax.swing.GroupLayout(JP_Fondo);
         JP_Fondo.setLayout(JP_FondoLayout);
         JP_FondoLayout.setHorizontalGroup(
             JP_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_FondoLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(JP_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JP_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JP_FondoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jtxt_Nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JP_FondoLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cb_dificultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         JP_FondoLayout.setVerticalGroup(
@@ -74,7 +79,9 @@ public class GuiInicio extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jtxt_Nickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(JP_FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(cb_dificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -96,10 +103,11 @@ public class GuiInicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        GUI ventana = new GUI();
+        String dificultad = cb_dificultad.getSelectedItem().toString();
+        GUI ventana = new GUI(dificultad);
         ventana.show();
         ventana.jl_NombreUser.setText(jtxt_Nickname.getText()); 
-        ventana.jl_Puntaje.setText("0"); 
+        ventana.jl_Puntaje.setText("0");        
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -140,6 +148,7 @@ public class GuiInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JP_Fondo;
+    private javax.swing.JComboBox<String> cb_dificultad;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jtxt_Nickname;

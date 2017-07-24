@@ -7,27 +7,59 @@ package patronones_disenio;
 
 import java.awt.Color;
 import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author kevin
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame implements ActionListener{
 
     LinkedList<User> lista = new LinkedList<User>();
     /**
      * Creates new form GUI
      */
-    public GUI() {
+    
+    public String dificultad;
+    //private Compuesto matriz;
+    JButton bMatriz [][];
+    int Tam_x;
+    int Tam_y;
+    public GUI(String dificultad) {
         initComponents();
+        this.dificultad = "";
         this.jl_NombreUser.setText("Robin");
         this.jl_Puntaje.setText("10");
         this.jp_Juego.setBackground(Color.GRAY);
         this.jp_DatosUser.setBackground(Color.green);
+        
+        juego acciones_juego = new juego();
+        if (dificultad.equals("Facil")) {
+            Tam_x = 4;
+            Tam_y = 3;
+            bMatriz = acciones_juego.getBotonesFacil();            
+            jp_Juego.add(acciones_juego.getTableroFacil(bMatriz));
+            agregarEventos(Tam_x, Tam_y);
+            this.pack();
+            
+        } else if(dificultad.equals("Intermedio")) {
+        }else{
+            
+        }
     }
-
+    
+    public void agregarEventos(int x, int y){
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                bMatriz[i][j].addActionListener(this);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -266,7 +298,7 @@ public class GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                new GUI("").setVisible(true);
             }
         });
     }
@@ -291,4 +323,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jp_DatosUser;
     private javax.swing.JPanel jp_Juego;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i < Tam_x; i++) {
+            for (int j = 0; j < Tam_y; j++) {
+                if (e.getSource() == bMatriz[i][j]) {
+                    JOptionPane.showMessageDialog(null,bMatriz[i][j].getName());
+                }
+            }
+        }
+    }
 }
