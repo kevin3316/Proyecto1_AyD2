@@ -24,9 +24,12 @@ public class GUI extends javax.swing.JFrame implements ActionListener{
      * Creates new form GUI
      */
     
+    //Dificultad del juegp
     public String dificultad;
     //private Compuesto matriz;
+    //Matriz de botones
     JButton bMatriz [][];
+    //Variables del tamaño del tablero, dependen del nivel x,y
     int Tam_x;
     int Tam_y;
     public GUI(String dificultad) {

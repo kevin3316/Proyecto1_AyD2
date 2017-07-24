@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author kevin
+ * @author kevin:
+ * Contiene las intrucciones que se van a usar en el funcionalidad del juego
  */
 public class juego {
     public juego(){
