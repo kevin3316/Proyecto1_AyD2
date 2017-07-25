@@ -12,6 +12,12 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import PatronCompositive.compositive_Tablero;
+import javax.swing.ImageIcon;
+import PatronBuilder.DeporteBuilder;
+import PatronBuilder.AnimalBuilder;
+import PatronBuilder.ObjetoBuilder;
+import java.awt.Dimension;
 
 /**
  *
@@ -29,6 +35,7 @@ public class GUI extends javax.swing.JFrame implements ActionListener{
     //private Compuesto matriz;
     //Matriz de botones
     JButton bMatriz [][];
+    compositive_Tablero Matriz;
     //Variables del tamaño del tablero, dependen del nivel x,y
     int Tam_x;
     int Tam_y;
@@ -42,16 +49,46 @@ public class GUI extends javax.swing.JFrame implements ActionListener{
         
         juego acciones_juego = new juego();
         if (dificultad.equals("Facil")) {
-            Tam_x = 4;
-            Tam_y = 3;
-            bMatriz = acciones_juego.getBotonesFacil();            
-            jp_Juego.add(acciones_juego.getTableroFacil(bMatriz));
+            AnimalBuilder tipo_animal = new AnimalBuilder();
+            ArrayList<String> imagenes = new ArrayList<String>();
+            imagenes.add("perro");imagenes.add("gato");imagenes.add("zorro");
+            imagenes.add("aguila");imagenes.add("foca");imagenes.add("elefante");
+            Tam_x = 3;
+            Tam_y = 4;
+            bMatriz = acciones_juego.getBotonesFacil(3,4);
+            Matriz = acciones_juego.getMatrizFacil(imagenes, 3, 4, tipo_animal);
+            jp_Juego.add(acciones_juego.getTableroFacil(bMatriz,3,4));
             agregarEventos(Tam_x, Tam_y);
-            this.pack();
-            
+            this.setMinimumSize(new Dimension(680, 270));
+            this.pack();            
         } else if(dificultad.equals("Intermedio")) {
+            DeporteBuilder tipo_deporte = new DeporteBuilder();
+            ArrayList<String> imagenes = new ArrayList<String>();
+            imagenes.add("futbol");imagenes.add("basket");imagenes.add("beisbol");imagenes.add("tenis");imagenes.add("golf");
+            imagenes.add("americano");imagenes.add("vaya");imagenes.add("pesa");imagenes.add("gimnasia");imagenes.add("barca");
+            Tam_x = 4;
+            Tam_y = 5;
+            bMatriz = acciones_juego.getBotonesFacil(4,5);
+            Matriz = acciones_juego.getMatrizIntermedio(imagenes, 4, 5, tipo_deporte);
+            jp_Juego.add(acciones_juego.getTableroFacil(bMatriz,4,5));
+            agregarEventos(Tam_x, Tam_y);
+            this.setMinimumSize(new Dimension(800, 480));
+            this.pack();            
         }else{
-            
+            ObjetoBuilder tipo_objeto = new ObjetoBuilder();
+            ArrayList<String> imagenes = new ArrayList<String>();
+            imagenes.add("casa");imagenes.add("arbol");imagenes.add("silla");imagenes.add("cama");imagenes.add("puerta");
+            imagenes.add("tasa");imagenes.add("tenedor");imagenes.add("cuchara");imagenes.add("carro");imagenes.add("moto");
+            imagenes.add("bicicleta");imagenes.add("sofa");imagenes.add("borrador");imagenes.add("lapicero");imagenes.add("pluma");
+            imagenes.add("camisa");imagenes.add("cuaderno");imagenes.add("laptop");imagenes.add("raton");imagenes.add("calculadora");
+            Tam_x = 5;
+            Tam_y = 8;
+            bMatriz = acciones_juego.getBotonesFacil(5,8);
+            Matriz = acciones_juego.getMatrizDificil(imagenes, 5, 8, tipo_objeto);
+            jp_Juego.add(acciones_juego.getTableroFacil(bMatriz,5,8));
+            agregarEventos(Tam_x, Tam_y);
+            this.setMinimumSize(new Dimension(1100, 580));
+            this.pack();
         }
     }
     
@@ -141,14 +178,14 @@ public class GUI extends javax.swing.JFrame implements ActionListener{
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jl_Puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jp_JuegoLayout = new javax.swing.GroupLayout(jp_Juego);
         jp_Juego.setLayout(jp_JuegoLayout);
         jp_JuegoLayout.setHorizontalGroup(
             jp_JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 319, Short.MAX_VALUE)
         );
         jp_JuegoLayout.setVerticalGroup(
             jp_JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,7 +369,11 @@ public class GUI extends javax.swing.JFrame implements ActionListener{
         for (int i = 0; i < Tam_x; i++) {
             for (int j = 0; j < Tam_y; j++) {
                 if (e.getSource() == bMatriz[i][j]) {
-                    JOptionPane.showMessageDialog(null,bMatriz[i][j].getName());
+                    String location[] = bMatriz[i][j].getName().split(",");
+                    int x = Integer.parseInt(location[1]);
+                    int y = Integer.parseInt(location[0]);
+                    String ruta = "../Imagenes/"+Matriz.getRuta(x, y)+".jpg";
+                    bMatriz[i][j].setIcon(new ImageIcon(getClass().getResource(ruta)));
                 }
             }
         }
